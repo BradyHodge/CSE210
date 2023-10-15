@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" modified="2023-10-15T05:54:04.075Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="kJDczI-p5nrCUJNl43ds" version="22.0.4" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="775" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--0" target="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="  Scripture" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="810" y="90" width="420" height="340" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--1" value="Purpose: Store the scripture, including both the reference and the &#xa;text of the scripture. Handle the functionality of hiding words and &#xa;displaying the scripture." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="26" width="420" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--2" value="Behaviors:  &#xa;    Display the scripture&#xa;    Hide random words&#xa;    Check if all words are hidden" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="80" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i7lRcRVNK4aYvKfpiaM_-5" value="Attributes:&#xa;    List of words" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="150" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mBFeH4BHJxaqPa3TcuWl-0" value="Data Types:&#xa;    List of words: List&lt;Word&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="220" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-0" value="Constructor with a list of words and a reference object." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="290" width="420" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--6" target="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="965" y="500" />
+              <mxPoint x="1050" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" value="Reference" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="710" y="535" width="510" height="350" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--7" value="Purpose: Store and manage the scripture reference, such as &quot;John 3:16&quot; or &quot;Proverbs 3:5-6&quot;.&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="26" width="510" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--8" value="Behaviors:&#xa;    Display the reference&#xa;            Handle verse ranges (e.g., &quot;Proverbs 3:5-6&quot;)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="52" width="510" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="i7lRcRVNK4aYvKfpiaM_-3" value="Attributes: &#xa;    Book name (e.g., &quot;John&quot;)&#xa;            Chapter number&#xa;            Verse number or range" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="110" width="510" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mBFeH4BHJxaqPa3TcuWl-1" value="Data Types: &#xa;    Book name: String&#xa;    Chapter number: Integer&#xa;    Verse number or range: String or Tuple&lt;Integer, Integer&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="180" width="510" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-2" value="Constructor with book name, chapter number, and verse number. Constructor with book &#xa;name, chapter number, and verse range." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="280" width="510" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--13" target="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="Word" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="60" y="540" width="499" height="310" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--14" value="Purpose: Represent a word in the scripture and manage its visibility (hidden or shown)." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="26" width="499" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="i7lRcRVNK4aYvKfpiaM_-2" value="Behaviors: &#xa;    Hide the word&#xa;            Show the word&#xa;            Check if the word is hidden" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="60" width="499" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="i7lRcRVNK4aYvKfpiaM_-4" value="Attributes &#xa;    Text of the word&#xa;            Visibility status (hidden or shown)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="130" width="499" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mBFeH4BHJxaqPa3TcuWl-2" value="Data Types:&#xa;    Text of the word: String&#xa;    Visibility status: Boolean" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="200" width="499" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-3" value="Constructor with the text of the word." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="270" width="499" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-4" value="Program" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="30" y="30" width="510" height="390" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-5" value="Purpose: &#xa;    Initialize the program. &#xa;    Display the main menu to the user. &#xa;    Handle user input and direct the flow of the program.&#xa;    Create instances of other classes as needed.&#xa;    Terminate the program." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry y="26" width="510" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-6" value="Behaviors:&#xa;    displayMenu(): Display the main menu options to the user.&#xa;    handleUserInput(): Take user input and call the appropriate methods or create instances of other classes based on the input.&#xa;    initializeProgram(): Set up any initial configurations or objects needed for the program to run.&#xa;    terminateProgram(): End the program gracefully, ensuring any necessary cleanup is done." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;whiteSpace=wrap;" vertex="1" parent="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry y="130" width="510" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-7" value="Attributes: &#xa;   Scripture scriptureInstance: An instance of the Scripture class to manage the scripture-related functionalities.&#xa;   bool isRunning: A boolean variable to keep track of whether the program is running or not." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;whiteSpace=wrap;" vertex="1" parent="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry y="220" width="510" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-8" value="Data Types: &#xa;   isRunning: bool" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry y="290" width="510" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UDMQVwWs__Dvb5Yp4lxq-9" value="Default constructor to initialize the program." style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UDMQVwWs__Dvb5Yp4lxq-4">
+          <mxGeometry y="350" width="510" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
