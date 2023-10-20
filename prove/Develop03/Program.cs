@@ -47,7 +47,57 @@ public class Program
     // Method to initialize the program
     private void initializeProgram() 
 {
+    List<string[]> scriptureLines = new List<string[]>();
     
+    using (TextFieldParser parser = new TextFieldParser("ScriptureMastery.csv"))
+    {
+        parser.TextFieldType = FieldType.Delimited;
+        parser.SetDelimiters(",");
+        parser.HasFieldsEnclosedInQuotes = true; // Handles quoted fields
+
+        // Skip the header row
+        parser.ReadLine();
+
+        while (!parser.EndOfData)
+        {
+            scriptureLines.Add(parser.ReadFields());
+        }
+    }
+
+    Random random = new Random();
+    var parts = scriptureLines[random.Next(scriptureLines.Count)];
+
+    var referenceParts = parts[1].Split(' ');
+    var chapterAndVerse = referenceParts[referenceParts.Length - 1];
+    var bookName = string.Join(" ", referenceParts.Take(referenceParts.Length - 1));
+    var chapterNumber = int.Parse(chapterAndVerse.Split(':')[0]);
+    var verseNumbers = chapterAndVerse.Split(':')[1].Split('-');
+
+    Reference reference;
+    if (verseNumbers.Length == 1) 
+    { 
+        reference = new Reference(bookName, chapterNumber, int.Parse(verseNumbers[0]));
+    } 
+    else 
+    { 
+        reference = new Reference(bookName, chapterNumber, int.Parse(verseNumbers[0]), int.Parse(verseNumbers[1]));
+    }
+    var scriptureText = parts[2];
+
+    var verses = scriptureText.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
+    var words = new List<Word>();
+
+    foreach (var verse in verses) 
+{
+    var verseParts = verse.Split(' ');
+    for (int i = 0; i < verseParts.Length; i++) 
+    {
+        words.Add(new Word(verseParts[i]));
+    }
+}
+
+
+    scriptureInstance = new Scripture(reference, words);
 }
 
     // Method to display the menu to the user
