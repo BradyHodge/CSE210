@@ -1,53 +1,48 @@
-// Purpose: Store the scripture, including both the reference and the
-// text of the scripture. Handle the functionality of hiding words and
-// displaying the scripture.
-
-// Behaviors:  
-//     Display the scripture
-//     Hide random words
-//     Check if all words are hidden
-
-// Attributes:
-//     List of words
-
-// Data Types:
-//     List of words: List<Word>
-
-// Constructor with a list of words and a reference object.
-
 using System;
 using System.Collections.Generic;
 
+// Represents a scripture with its reference and words
 public class Scripture
 {
+    // Holds the reference to the scripture
     public Reference ScriptureReference { get; private set; }
+
+    // List of words that make up the scripture
     public List<Word> Words { get; private set; }
 
+    // Initialize the scripture with its reference and words
     public Scripture(Reference reference, List<Word> words)
     {
         ScriptureReference = reference;
         Words = words;
     }
 
+    // Hides a specified number of random words from the scripture (IDK how many words to hide, I assume one)
     public void HideRandomWords(int count = 1)
-{
-    Random random = new Random();
-    for (int i = 0; i < count; i++)
     {
-        var notHiddenIndices = Words.Select((word, index) => new { word, index })
-                                    .Where(x => !x.word.IsHidden)
-                                    .Select(x => x.index)
-                                    .ToList();
-        if (notHiddenIndices.Count == 0)
+        Random random = new Random();
+        for (int i = 0; i < count; i++)
         {
-            break; // All words are already hidden
+            // Get indices of words that are not yet hidden 
+            var notHiddenIndices = Words.Select((word, index) => new { word, index })
+                                        .Where(x => !x.word.IsHidden)
+                                        .Select(x => x.index)
+                                        .ToList();
+                                        // why ಥ_ಥ
+
+            // If all words are hidden, exit the loop
+            if (notHiddenIndices.Count == 0)
+            {
+                break;
+            }
+
+            // Randomly choose an index from the notHiddenIndices list and hide the word at that index
+            int indexToHide = notHiddenIndices[random.Next(notHiddenIndices.Count)];
+            Words[indexToHide].Hide();
         }
-        int indexToHide = notHiddenIndices[random.Next(notHiddenIndices.Count)];
-        Words[indexToHide].Hide();
     }
-}
 
-
+    // Checks if all words in the scripture are hidden
     public bool AreAllWordsHidden()
     {
         foreach (var word in Words)
@@ -62,3 +57,4 @@ public class Scripture
         return $"{ScriptureReference}\n{string.Join(" ", Words)}";
     }
 }
+

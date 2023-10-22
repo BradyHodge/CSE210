@@ -1,30 +1,18 @@
-// Purpose: Store and manage the scripture reference, such as "John 3:16" or "Proverbs 3:5-6".
-
-// Behaviors:
-//     Display the reference
-//     Handle verse ranges (e.g., "Proverbs 3:5-6")
-
-// Attributes: 
-//     Book name (e.g., "John")
-//     Chapter number
-//     Verse number or range
-
-// Data Types: 
-//     Book name: String
-//     Chapter number: Integer
-//     Verse number or range: String or Tuple<Integer, Integer>
-
-// Constructor with book name, chapter number, and verse number. Constructor with book name, chapter number, and verse range.
-
 using System;
 
+// Represents a scripture reference, such as "John 3:16" or "John 3:16-17"
 public class Reference
 {
+    // Name of the book (e.g., "John")
     public string BookName { get; private set; }
+
+    // Chapter number (e.g., 3)
     public int ChapterNumber { get; private set; }
+
+    // Represents a range of verses; both items will be the same for a single verse
     public Tuple<int, int> VerseRange { get; private set; }
     
-    // Constructor for single verse
+    // VerseRange will have the same start and end verse number
     public Reference(string bookName, int chapterNumber, int verseNumber)
     {
         BookName = bookName;
@@ -32,7 +20,7 @@ public class Reference
         VerseRange = new Tuple<int, int>(verseNumber, verseNumber);
     }
 
-    // Constructor for verse range
+    // Constructor to create a reference for a range of verses
     public Reference(string bookName, int chapterNumber, int startVerse, int endVerse)
     {
         BookName = bookName;
@@ -40,13 +28,16 @@ public class Reference
         VerseRange = new Tuple<int, int>(startVerse, endVerse);
     }
 
+    // Overrides the default ToString method to provide a custom string representation
+    // of the scripture reference (apparently this is the best way idk)
     public override string ToString()
-{
-    if(VerseRange.Item1 == VerseRange.Item2)
     {
-        return $"{BookName} {ChapterNumber}:{VerseRange.Item1}";
+        if(VerseRange.Item1 == VerseRange.Item2)
+        {
+            // For a single verse reference, e.g., "John 3:16"
+            return $"{BookName} {ChapterNumber}:{VerseRange.Item1}";
+        }
+        // For a verse range, e.g., "John 3:16-17"
+        return $"{BookName} {ChapterNumber}:{VerseRange.Item1}-{VerseRange.Item2}";
     }
-    return $"{BookName} {ChapterNumber}:{VerseRange.Item1}-{VerseRange.Item2}";
-}
-
 }
