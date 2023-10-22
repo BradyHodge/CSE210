@@ -1,3 +1,6 @@
+// For the "Showing Creativity and Exceeding Requirements" I made a file with every scripture mastery scripture in it and my program picks one from random each time it is run.
+
+
 // Importing required thingys
 using Microsoft.VisualBasic.FileIO;
 using System;
