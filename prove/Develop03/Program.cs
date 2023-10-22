@@ -1,26 +1,4 @@
-// Purpose:
-//     Initialize the program. 
-//     Display the main menu to the user. 
-//     Handle user input and direct the flow of the program.
-//     Create instances of other classes as needed.
-//     Terminate the program.
-
-
-// Behaviors:
-//     displayMenu(): Display the main menu options to the user.
-//     handleUserInput(): Take user input and call the appropriate methods or create instances of other classes based on the input.
-//     initializeProgram(): Set up any initial configurations or objects needed for the program to run.
-//     terminateProgram(): End the program gracefully, ensuring any necessary cleanup is done.
-
-// Attributes: 
-//    Scripture scriptureInstance: An instance of the Scripture class to manage the scripture-related functionalities.
-//    bool isRunning: A boolean variable to keep track of whether the program is running or not.
-
-// Data Types: 
-//    isRunning: bool
-
-// Default constructor to initialize the program.
-// Importing required namespaces
+// Importing required thingys
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
@@ -30,21 +8,20 @@ using System.Linq;
 // Declaring the Program class
 public class Program 
 { 
-    // Declaring a private field of type Scripture
+    // Declaring a private thing of type Scripture
     private Scripture scriptureInstance;
-    // Declaring a private boolean field to check if the program is running
+    // Declaring a bool so I can see if the program is running
     private bool isRunning;
 
-    // Default constructor for the Program class
+    
     public Program() 
     { 
-        // Setting the isRunning field to true
+        // Setting the isRunning  to true
         isRunning = true;
-        // Calling the initializeProgram method
+        // Start doing the program stuff
         initializeProgram();
     }
 
-    // Method to initialize the program
     private void initializeProgram() 
 {
     List<string[]> scriptureLines = new List<string[]>();
@@ -53,9 +30,9 @@ public class Program
     {
         parser.TextFieldType = FieldType.Delimited;
         parser.SetDelimiters(",");
-        parser.HasFieldsEnclosedInQuotes = true; // Handles quoted fields
+        parser.HasFieldsEnclosedInQuotes = true; // Handles quote stuff
 
-        // Skip the header row
+        // Skip the header row (bc it's a hoe)
         parser.ReadLine();
 
         while (!parser.EndOfData)
@@ -64,14 +41,25 @@ public class Program
         }
     }
 
+    // get random number
     Random random = new Random();
-    var parts = scriptureLines[random.Next(scriptureLines.Count)];
+    // get a random line from the list
+    var parts = scriptureLines[random.Next(scriptureLines.Count)]; 
 
-    var referenceParts = parts[1].Split(' ');
-    var chapterAndVerse = referenceParts[referenceParts.Length - 1];
-    var bookName = string.Join(" ", referenceParts.Take(referenceParts.Length - 1));
-    var chapterNumber = int.Parse(chapterAndVerse.Split(':')[0]);
-    var verseNumbers = chapterAndVerse.Split(':')[1].Split('-');
+   // Split the reference part (e.g., John 3:16-17) to separate book name from chapter and verse numbers
+var referenceParts = parts[1].Split(' ');
+
+// Extract the last part which contains chapter and verse information (probably)
+var chapterAndVerse = referenceParts[referenceParts.Length - 1];
+
+// Join the earlier parts to get the book name UwU
+var bookName = string.Join(" ", referenceParts.Take(referenceParts.Length - 1));
+
+// Split to get chapter number from the chapter and verse information
+var chapterNumber = int.Parse(chapterAndVerse.Split(':')[0]);
+
+// Split to get verse numbers 
+var verseNumbers = chapterAndVerse.Split(':')[1].Split('-');
 
     Reference reference;
     if (verseNumbers.Length == 1) 
@@ -96,27 +84,22 @@ public class Program
     }
 }
 
-
+ //  Create a new scripture thing with the reference and words
     scriptureInstance = new Scripture(reference, words);
 }
 
     // Method to display the menu to the user
     private void displayMenu() 
     { 
-        // Clearing the console
         Console.Clear();
-        // Printing the scriptureInstance to the console
         Console.WriteLine(scriptureInstance);
-        // Printing instructions to the user
         Console.WriteLine("\nPress ENTER to hide words or type 'quit' to exit.");
     }
 
     // Method to handle the user's input
     private void handleUserInput() 
     {
-        // Reading the user's input from the console
         var input = Console.ReadLine();
-        // Checking if the user typed "quit" (case insensitive)
         if (input.ToLower() == "quit") 
         {
             // Setting isRunning to false to stop the program
@@ -124,18 +107,14 @@ public class Program
         } 
         else 
         {
-            // Calling the HideRandomWords method of the scriptureInstance
+            // hide some words
             scriptureInstance.HideRandomWords();
-            // Checking if all words are hidden
             if (scriptureInstance.AreAllWordsHidden()) 
             {
-                // Clearing the console
                 Console.Clear();
-                // Informing the user that all words are hidden
                 Console.WriteLine("All words are hidden. Press any key to exit.");
-                // Waiting for a key press from the user
+                // Waiting for a key press from the user (thanks stackoverflow)
                 Console.ReadKey();
-                // Setting isRunning to false to stop the program
                 isRunning = false;
             }
         }
@@ -144,11 +123,11 @@ public class Program
     // Method to terminate the program
     private void terminateProgram() 
     {
-        // Printing a goodbye message to the user
+        // Printing a goodbye message to the user (bc we're nice like that)
         Console.WriteLine("Goodbye!");
     }
 
-    // Method to run the program
+    // Run the program
     public void Run() 
     {
         // Running the program as long as isRunning is true
@@ -157,7 +136,7 @@ public class Program
             displayMenu();
             handleUserInput();
         }
-        // Calling the terminateProgram method when the program stops
+        // Calling the terminateProgram when the program stops
         terminateProgram();
     }
 
@@ -166,7 +145,6 @@ public class Program
     {
         // Creating a new instance of the Program class
         Program program = new Program();
-        // Running the program
         program.Run();
     }
 }
