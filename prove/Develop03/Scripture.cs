@@ -28,7 +28,7 @@ public class Scripture
                                         .Where(x => !x.word.IsHidden)
                                         .Select(x => x.index)
                                         .ToList();
-                                        // why ಥ_ಥ
+                                        
 
             // If all words are hidden, exit the loop
             if (notHiddenIndices.Count == 0)
