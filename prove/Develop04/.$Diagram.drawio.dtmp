@@ -1,0 +1,107 @@
+<mxfile host="Electron" modified="2023-10-31T20:56:50.609Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="nQRn8-U1EGbYOxxpfOrP" version="22.0.3" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1418" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="ListingActivity " style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry y="380" width="220" height="296" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-24" value="Purpose:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Guide the user to list items based on a prompt.&lt;div&gt;&amp;nbsp; &amp;nbsp; Display the number of items listed by the user.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="26" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-30" value="&lt;div&gt;Behaviors:&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; DisplayListingPrompt()&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ListItems()&lt;/div&gt;" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="116" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-37" value="Data Types:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;listingPrompts: List&amp;lt;string&amp;gt;" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="176" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-38" value="&lt;b&gt;Constructor:&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;ListingActivity(string name, string description, List&amp;lt;string&amp;gt; prompts) : base(name, description)&lt;/b&gt;&lt;span style=&quot;font-weight: bold;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="236" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" value="BreathingActivity " style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="230" y="470" width="270" height="250" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-13" value="Purpose:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Guide the user through breathing exercises.&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Alternate between &quot;Breathe in...&quot; and &quot;Breathe out...&quot; messages.&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="26" width="270" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-28" value="Behaviors:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;StartBreathingExercise()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="90" width="270" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-40" value="&lt;strong&gt;Constructor:&lt;br&gt;&lt;/strong&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;BreathingActivity(string name, string description) : base(name, description)" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--6" vertex="1">
+          <mxGeometry y="140" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RgENuSNTIzKOygKHR2Vr-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=15;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--13" target="RgENuSNTIzKOygKHR2Vr-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="325.5" as="targetPoint" />
+            <mxPoint x="650" y="569.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="ReflectionActivity " style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="517" y="402" width="310" height="290" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-17" value="Purpose:&amp;nbsp;&lt;br&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; Help the user reflect on past experiences.&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; Display random prompts and questions for reflection.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="26" width="310" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-29" value="Behaviors:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt; &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;DisplayRandomPrompt()&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;AskReflectionQuestions()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="120" width="310" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-36" value="Data Types:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;reflectionPrompts: List&amp;lt;string&amp;gt;" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="170" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-39" value="&lt;strong&gt;Constructor:&lt;br&gt;&lt;/strong&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;ReflectionActivity(string name, string description, List&amp;lt;string&amp;gt; prompts, List&amp;lt;string&amp;gt; questions) : base(name, description)" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--13" vertex="1">
+          <mxGeometry y="230" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--17" value="Program" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="640" y="60" width="160" height="190" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-14" value="Purpose:&amp;nbsp; Handle user choice and utilize classes" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="26" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RgENuSNTIzKOygKHR2Vr-20" value="methods:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;DisplayMenu&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Start Activity" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="86" width="160" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-42" value="Constructor:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;D&lt;/span&gt;&lt;/span&gt;efault c&lt;strong style=&quot;border-color: var(--border-color);&quot;&gt;onstructor&lt;/strong&gt;" style="whiteSpace=wrap;html=1;align=left;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="130" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RgENuSNTIzKOygKHR2Vr-3" value="Activity" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="230" width="350" height="340" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-12" value="Purpose:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Provide a common starting message.&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Set the duration of the activity.&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Provide a common ending message.&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Display animations during pauses.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="RgENuSNTIzKOygKHR2Vr-3" vertex="1">
+          <mxGeometry y="26" width="350" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-25" value="Behaviors:&lt;br&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; DisplayStartingMessage()&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; SetDuration()&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; DisplayEndingMessage()&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ShowAnimation()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="RgENuSNTIzKOygKHR2Vr-3" vertex="1">
+          <mxGeometry y="122" width="350" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-35" value="&lt;b&gt;Data types:&lt;/b&gt;&lt;br&gt;&#x9;&lt;span style=&quot;&quot;&gt;&lt;b&gt;    &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;activityName: string&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;activityDescription: string&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;duration: int&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&#x9;" style="whiteSpace=wrap;html=1;align=left;" parent="RgENuSNTIzKOygKHR2Vr-3" vertex="1">
+          <mxGeometry y="194" width="350" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="CghOZJPsOXeysqv0BFEc-41" value="&lt;strong&gt;Constructor:&lt;br&gt;&lt;span style=&quot;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;Activity(string name, string description)" style="whiteSpace=wrap;html=1;align=left;" parent="RgENuSNTIzKOygKHR2Vr-3" vertex="1">
+          <mxGeometry y="280" width="350" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RgENuSNTIzKOygKHR2Vr-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=block;endFill=0;endSize=15;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--0" target="RgENuSNTIzKOygKHR2Vr-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="570" as="targetPoint" />
+            <mxPoint x="370" y="635" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RgENuSNTIzKOygKHR2Vr-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=15;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--6" target="RgENuSNTIzKOygKHR2Vr-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="300" as="targetPoint" />
+            <mxPoint x="230" y="484" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
