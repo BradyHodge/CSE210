@@ -1,6 +1,8 @@
 using System;
 using System.Threading;
 
+// Shows creativity and exceeds core requirements:
+// - Added the ability to set the breathing in and out duration
 public abstract class Activity
 {
     public string ActivityName { get; private set; }

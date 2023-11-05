@@ -11,15 +11,37 @@ public class BreathingActivity : Activity
     {
         DisplayStartingMessage();
 
+        int BreathIn = 3;
+        int BreathOut = 4;
+
+            try {
+                Console.Write("How many seconds would you like to breathe in each time? ");
+            BreathIn = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Defaulting to 3 seconds.");
+            }
+
+            try {
+                Console.Write("How many seconds would you like to breathe out each time? ");
+            BreathOut = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid input. Defaulting to 4 seconds.");
+            }
+
+
         DateTime endTime = DateTime.Now.AddSeconds(Duration);
         while (DateTime.Now < endTime)
         {
             Console.WriteLine();
             Console.Write("Breathe in...");
-            Countdown(4);
+            Countdown(BreathIn);
             Console.WriteLine();
             Console.Write("Breathe out...");
-            Countdown(5);
+            Countdown(BreathOut);
             
         }
 
