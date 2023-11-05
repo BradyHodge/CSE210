@@ -14,12 +14,16 @@ public class BreathingActivity : Activity
         DateTime endTime = DateTime.Now.AddSeconds(Duration);
         while (DateTime.Now < endTime)
         {
-            Console.WriteLine("Breathe in...");
-            Thread.Sleep(4000); // Simulate breathing in for 4 seconds
-            Console.WriteLine("Breathe out...");
-            Thread.Sleep(4000); // Simulate breathing out for 4 seconds
+            Console.WriteLine();
+            Console.Write("Breathe in...");
+            Countdown(4);
+            Console.WriteLine();
+            Console.Write("Breathe out...");
+            Countdown(5);
+            
         }
 
+        Console.WriteLine();
         DisplayEndingMessage();
     }
 }

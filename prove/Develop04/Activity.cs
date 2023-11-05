@@ -15,31 +15,48 @@ public abstract class Activity
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine($"Activity: {ActivityName}");
-        Console.WriteLine($"Description: {ActivityDescription}");
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {ActivityName} activity.");
+        Console.WriteLine(ActivityDescription);
         Console.WriteLine("Please set the duration of the activity in seconds.");
         Duration = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Prepare to begin...");
-        // Simulate a pause with a countdown
-        Countdown(Duration);
+        SpinningAnimation(3);
     }
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("You have done a good job!");
-        Thread.Sleep(2000); // Pause for effect
+        Console.WriteLine("Good Job!");
+        SpinningAnimation(3);
         Console.WriteLine($"Activity completed: {ActivityName} for {Duration} seconds.");
+        SpinningAnimation(3);
+        Console.Clear();
     }
 
     protected void Countdown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.Write($"\rStarting in {i} seconds...");
+            Console.Write($"{i}");
             Thread.Sleep(1000);
+            Console.Write("\b \b");
         }
-        Console.Write("\r "); // Clear the line
+        
     }
+    public void SpinningAnimation(int durationInSeconds)
+{
+    var spinner = new[] { '|', '/', '-', '\\' };
+    int counter = 0;
+    DateTime end = DateTime.Now.AddSeconds(durationInSeconds);
+
+    while (DateTime.Now < end)
+    {
+        Console.Write($"\b \b{spinner[counter++ % spinner.Length]}");
+        Thread.Sleep(100);
+    }
+    Console.Write("\b \b"); 
+}
+
 
     // Abstract method to be implemented by derived classes
     public abstract void StartActivity();
