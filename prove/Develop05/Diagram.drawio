@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2023-11-12T04:29:35.288Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="QCvSSvNeGGhX4wykkASr" version="22.1.0" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="2074" dy="2311" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="Goal" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry width="390" height="280" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-1" value="Purpose: Acts as a base class, storing common attributes and methods for different types of goals" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="26" width="390" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-13" value="Behaviors:&amp;nbsp;Provide basic goal functionalities like displaying goal status." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="70" width="390" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-18" value="Attributes:&amp;nbsp;name, pointValue, isCompleted" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="110" width="390" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-23" value="Data Types:&amp;nbsp;string for name, int for pointValue, bool for isCompleted." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="150" width="390" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-28" value="Constructors:&amp;nbsp;Goal(string name, int pointValue)" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="190" width="390" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endSize=15;endArrow=block;endFill=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--6" target="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="414" y="370" />
+              <mxPoint x="195" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--6" value="EternalGoal" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="282.75" y="400" width="261.5" height="320" as="geometry">
+            <mxRectangle x="130" y="380" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-5" value="Purpose: Tracks occurrences and allocates points each time the goal is recorded." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="26" width="261.5" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-15" value="Behaviors:&amp;nbsp;Record occurrences, allocate points." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="80" width="261.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-20" value="Attributes:&amp;nbsp;Inherits from Goal, additional attribute for tracking occurrences." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="120" width="261.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-25" value="Data Types:&amp;nbsp;Inherits types from Goal, int for occurrences." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="160" width="261.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-30" value="Constructors: EternalGoal(string name, int pointValue) : base(name, pointValue)" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--6">
+          <mxGeometry y="210" width="261.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;endSize=15;endArrow=block;endFill=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--13" target="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--13" value="SimpleGoal" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry y="400" width="260" height="320" as="geometry">
+            <mxRectangle x="340" y="380" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-3" value="Purpose: Manages completion status and point allocation for a one-time goal." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="26" width="260" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-16" value="Behaviors:&amp;nbsp;Mark as complete, allocate points." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="80" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-21" value="Attributes: Inherits from Goal." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="120" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-26" value="Data Types:&amp;nbsp;Inherits types from Goal." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="150" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-31" value="Constructors:&amp;nbsp;SimpleGoal(string name, int pointValue) : base(name, pointValue)" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--13">
+          <mxGeometry y="190" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endSize=15;endArrow=block;endFill=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--17" target="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--17" value="ChecklistGoal" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="560" y="400" width="267" height="320" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-6" value="Purpose: Keeps track of how many times the goal has been completed and manages point allocation and bonus for completion." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="26" width="267" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-14" value="Behaviors:&amp;nbsp;Increment completion count, check for total completion, allocate points and bonus." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="86" width="267" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-19" value="Attributes:&amp;nbsp;Inherits from Goal, additional attributes for tracking completion count and setting a completion target." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="130" width="267" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-24" value="Data Types:&amp;nbsp;Inherits types from Goal, int for completion count and target." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="190" width="267" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-29" value="Constructors: ChecklistGoal(string name, int pointValue, int target) : base(name, pointValue)" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="240" width="267" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-0" value="Program" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="410" y="-6" width="417" height="286" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-12" value="Purpose: Responsible for initializing and running the application." style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="rXUTtIHbEFrWl1RpFd01-0">
+          <mxGeometry y="26" width="417" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-11" value="Behaviors:&amp;nbsp;Initialize Application,&amp;nbsp;Display Menu,&amp;nbsp;Handle User Input,&amp;nbsp;Manage Goals,&amp;nbsp;Save and Load Data,&amp;nbsp;&lt;strong&gt;Display Progress and Scores&lt;/strong&gt;" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="rXUTtIHbEFrWl1RpFd01-0">
+          <mxGeometry y="70" width="417" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-17" value="Attributes:&amp;nbsp;List of Goals,&amp;nbsp;&lt;strong&gt;User Score&lt;/strong&gt;" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="rXUTtIHbEFrWl1RpFd01-0">
+          <mxGeometry y="120" width="417" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-22" value="Data Types: List&amp;lt;Goal&amp;gt;: To store various types of goals.&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;int: For tracking the user&#39;s score.&lt;/span&gt;" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="rXUTtIHbEFrWl1RpFd01-0">
+          <mxGeometry y="160" width="417" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rXUTtIHbEFrWl1RpFd01-27" value="Constructors:&amp;nbsp;default constructor" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="rXUTtIHbEFrWl1RpFd01-0">
+          <mxGeometry y="210" width="417" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
