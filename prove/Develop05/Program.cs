@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 public class Program
 {
@@ -28,6 +31,12 @@ public class Program
                     DisplayScore();
                     break;
                 case "5":
+                    ExportGoalsToCSV();
+                    break;
+                case "6":
+                    ImportGoalsFromCSV();
+                    break;
+                case "7":
                     running = false;
                     break;
                 default:
@@ -44,7 +53,9 @@ public class Program
         Console.WriteLine("2. Record Goal Achievement");
         Console.WriteLine("3. View Goals");
         Console.WriteLine("4. Display Score");
-        Console.WriteLine("5. Exit");
+        Console.WriteLine("5. Export Goals to CSV");
+        Console.WriteLine("6. Import Goals from CSV");
+        Console.WriteLine("7. Exit");
         Console.Write("Select an option: ");
     }
 
@@ -114,5 +125,58 @@ private static void DisplayScore()
     userScore = goals.Sum(g => g.CalculateScore());
     Console.WriteLine($"Your total score is: {userScore}");
 }
+private static void ExportGoalsToCSV()
+    {
+        StringBuilder csvContent = new StringBuilder();
+        csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score");
+        foreach (var goal in goals)
+        {
+            string line = $"\"{goal.Name}\",{goal.PointValue},{goal.IsCompleted},{goal.CalculateScore()}";
+            csvContent.AppendLine(line);
+        }
 
+        Console.WriteLine("Enter the file path to save the CSV:");
+        string filePath = Console.ReadLine();
+        File.WriteAllText(filePath, csvContent.ToString());
+        Console.WriteLine("Goals exported to CSV file successfully.");
+    }
+    private static void ImportGoalsFromCSV()
+    {
+        Console.WriteLine("Enter the file path to import the CSV:");
+        string filePath = Console.ReadLine();
+
+        if (!File.Exists(filePath))
+        {
+            Console.WriteLine("File not found.");
+            return;
+        }
+
+        var lines = File.ReadAllLines(filePath);
+        foreach (string line in lines.Skip(1)) // Skipping the header line
+        {
+            var data = line.Split(',');
+
+            if (data.Length != 4)
+            {
+                Console.WriteLine("Invalid data format in CSV.");
+                continue;
+            }
+
+            string name = data[0].Trim('\"');
+            int pointValue = int.Parse(data[1]);
+            bool isCompleted = bool.Parse(data[2]);
+            // Assuming the CSV only contains SimpleGoals for simplicity
+            SimpleGoal goal = new SimpleGoal(name, pointValue);
+            if (isCompleted)
+            {
+                goal.MarkAsComplete();
+            }
+            goals.Add(goal);
+        }
+
+        Console.WriteLine("Goals imported from CSV file successfully.");
+    }
 }
+
+
+
