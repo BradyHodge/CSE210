@@ -1,7 +1,12 @@
+// Show creativity and exceed the core requirements:
+// Added auto-save feature
+
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 public class Program
@@ -12,6 +17,8 @@ public class Program
     public static void Main(string[] args)
     {
         bool running = true;
+        bool AutoSave = false;
+        string autoSaveFilePath = "Goals.csv";
         while (running)
         {
             Console.WriteLine();
@@ -23,21 +30,46 @@ public class Program
             {
                 case "1":
                     CreateGoal();
+                    if (AutoSave)
+                    {
+                        ExportGoalsToCSV(autoSaveFilePath);
+                    }
                     break;
                 case "2":
                     ViewGoals();
                     break;
                 case "3":
-                    ExportGoalsToCSV();
+                    Console.WriteLine("Enter the file path to save the CSV:");
+                    string filePath = Console.ReadLine();
+                    ExportGoalsToCSV(filePath);
+                    
                     break;
                 case "4":
                     ImportGoalsFromCSV();
                     break;
                 case "5":
                     RecordGoalAchievement();
+                    if (AutoSave)
+                    {
+                        ExportGoalsToCSV(autoSaveFilePath);
+                    }
                     break;
                 case "6":
+                    AutoSave = !AutoSave;
+                    Console.WriteLine($"Auto-Save is now {(AutoSave ? "enabled" : "disabled")}.");
+                    if (AutoSave)
+                    {
+                        Console.WriteLine("Enter the file name to save the CSV:");
+                        autoSaveFilePath = Console.ReadLine();
+                    }
+                    break;
+                case "7":
                     running = false;
+                    if (AutoSave)
+                    {
+                        ExportGoalsToCSV(autoSaveFilePath);
+                        Console.WriteLine("Save updated.");
+                    }
                     break;
                 default:
                     Console.WriteLine("Invalid option. Please try again.");
@@ -54,7 +86,8 @@ public class Program
         Console.WriteLine("3. Save Goals to CSV");
         Console.WriteLine("4. Load Goals from CSV");
         Console.WriteLine("5. Record Goal Achievement");
-        Console.WriteLine("6. Quit");
+        Console.WriteLine("6. Toggle Auto-Save");
+        Console.WriteLine("7. Quit");
         Console.Write("Select an option: ");
     }
 
@@ -160,7 +193,7 @@ private static void DisplayScore()
     userScore = goals.Sum(g => g.CalculateScore());
     Console.WriteLine($"Your total score is: {userScore}");
 }
-private static void ExportGoalsToCSV()
+private static void ExportGoalsToCSV(string filePath)
 {
     StringBuilder csvContent = new StringBuilder();
     csvContent.AppendLine("Goal Name,Description,Point Value,Is Completed,Score,Goal Type,Completion Count,Completion Target,Bonus Points");
@@ -195,8 +228,6 @@ private static void ExportGoalsToCSV()
         csvContent.AppendLine(line);
     }
 
-    Console.WriteLine("Enter the file path to save the CSV:");
-    string filePath = Console.ReadLine();
     File.WriteAllText(filePath, csvContent.ToString());
     Console.WriteLine("Goals exported to CSV file successfully.");
 }
