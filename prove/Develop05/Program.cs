@@ -54,7 +54,7 @@ private static void CreateGoal()
     string name = Console.ReadLine();
     Console.WriteLine("Enter point value for the goal:");
     int pointValue = int.Parse(Console.ReadLine());
-    Console.WriteLine("Select goal type (1: Simple, 2: Eternal, 3: Checklist):");
+    Console.WriteLine("Select goal type (1. Simple, 2. Eternal, 3. Checklist):");
     string type = Console.ReadLine();
 
     switch (type)

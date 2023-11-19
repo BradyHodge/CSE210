@@ -12,5 +12,4 @@ public class SimpleGoal : Goal
         }
     }
 
-    // The CalculateScore method from the base class is sufficient for this type
 }

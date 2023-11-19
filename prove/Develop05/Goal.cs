@@ -21,5 +21,4 @@ public class Goal
         return IsCompleted ? PointValue : 0;
     }
 
-    // Additional methods can be added here for common goal functionalities
 }

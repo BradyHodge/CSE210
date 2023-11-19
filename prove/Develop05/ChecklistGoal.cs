@@ -23,7 +23,6 @@ public class ChecklistGoal : Goal
 
     public override int CalculateScore()
     {
-        // The score is the point value times the completion count, plus a bonus if completed
         return PointValue * CompletionCount + (IsCompleted ? 100 : 0);
     }
 }

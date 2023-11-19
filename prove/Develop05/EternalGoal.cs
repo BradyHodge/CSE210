@@ -10,12 +10,10 @@ public class EternalGoal : Goal
     public void RecordOccurrence()
     {
         Occurrences++;
-        // Each occurrence adds to the score, but the goal is never marked as completed
     }
 
     public override int CalculateScore()
     {
-        // The score is the point value times the number of occurrences
         return PointValue * Occurrences;
     }
 }
