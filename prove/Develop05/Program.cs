@@ -93,30 +93,42 @@ private static void CreateGoal()
 }
 private static void RecordGoalAchievement()
 {
-    Console.WriteLine("Enter the name of the goal to record:");
-    string goalName = Console.ReadLine();
-    var goal = goals.Find(g => g.Name.Equals(goalName));
-    if (goal != null)
+    if (goals.Count == 0)
     {
-        if (goal is EternalGoal eternalGoal)
-        {
-            eternalGoal.RecordOccurrence();
-        }
-        else if (goal is ChecklistGoal checklistGoal)
-        {
-            checklistGoal.RecordCompletion();
-        }
-        else
-        {
-            goal.MarkAsComplete();
-        }
-        Console.WriteLine("Goal achievement recorded.");
+        Console.WriteLine("No goals available.");
+        return;
+    }
+
+    Console.WriteLine("Select a goal to record achievement:");
+    for (int i = 0; i < goals.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {goals[i].Name} - {goals[i].Description}");
+    }
+    Console.Write("Enter goal number:");
+
+    if (!int.TryParse(Console.ReadLine(), out int goalNumber) || goalNumber < 1 || goalNumber > goals.Count)
+    {
+        Console.WriteLine("Invalid selection.");
+        return;
+    }
+
+    var goal = goals[goalNumber - 1];
+
+    if (goal is EternalGoal eternalGoal)
+    {
+        eternalGoal.RecordOccurrence();
+    }
+    else if (goal is ChecklistGoal checklistGoal)
+    {
+        checklistGoal.RecordCompletion();
     }
     else
     {
-        Console.WriteLine("Goal not found.");
+        goal.MarkAsComplete();
     }
+    Console.WriteLine($"Achievement recorded for goal: {goal.Name}");
 }
+
 private static void ViewGoals()
 {
     int goalNumber = 1;
@@ -124,21 +136,21 @@ private static void ViewGoals()
     {
         if (goal is EternalGoal eternalGoal)
         {
-            Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
+            Console.WriteLine($"{goalNumber}. [ ]{goal.Name} ({goal.Description}) - Goal Count: {eternalGoal.Occurrences}");
         }
         else if (goal is ChecklistGoal checklistGoal)
         {
             if (goal.IsCompleted)
-                Console.WriteLine($"{goalNumber}. [X]{goal.Name} - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
+                Console.WriteLine($"{goalNumber}. [X]{goal.Name} ({goal.Description}) - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
             else
-                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
+                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} ({goal.Description}) - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
         }
         else
         {
             if (goal.IsCompleted)
-                Console.WriteLine($"{goalNumber}. [X]{goal.Name}");
+                Console.WriteLine($"{goalNumber}. [X]{goal.Name} ({goal.Description})");
             else
-                Console.WriteLine($"{goalNumber}. [ ]{goal.Name}");
+                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} ({goal.Description})");
         }
         goalNumber++;
     }
