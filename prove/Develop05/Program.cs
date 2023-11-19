@@ -60,27 +60,30 @@ public class Program
 
 private static void CreateGoal()
 {
-    Console.WriteLine("Enter goal name:");
-    string name = Console.ReadLine();
-    Console.WriteLine("Enter point value for the goal:");
-    int pointValue = int.Parse(Console.ReadLine());
-    Console.WriteLine("Select goal type (1. Simple, 2. Eternal, 3. Checklist):");
+    Console.Write("Select goal type (1. Simple, 2. Eternal, 3. Checklist):");
     string type = Console.ReadLine();
+    Console.Write("Enter goal name:");
+    string name = Console.ReadLine();
+    Console.Write("Enter a short description for the goal:");
+    string description = Console.ReadLine();
+    Console.Write("Enter point value for the goal:");
+    int pointValue = int.Parse(Console.ReadLine());
+    
 
     switch (type)
     {
         case "1":
-            goals.Add(new SimpleGoal(name, pointValue));
+            goals.Add(new SimpleGoal(name, pointValue, description));
             break;
         case "2":
-            goals.Add(new EternalGoal(name, pointValue));
+            goals.Add(new EternalGoal(name, pointValue, description));
             break;
         case "3":
             Console.WriteLine("Enter completion target for the checklist goal:");
             int target = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter bonus points for the checklist goal:");
             int bonusPoints = int.Parse(Console.ReadLine());
-            goals.Add(new ChecklistGoal(name, pointValue, target, bonusPoints));
+            goals.Add(new ChecklistGoal(name, pointValue, target, bonusPoints, description));
             break;
         default:
             Console.WriteLine("Invalid goal type.");
@@ -121,10 +124,7 @@ private static void ViewGoals()
     {
         if (goal is EternalGoal eternalGoal)
         {
-            if (goal.IsCompleted)
-                Console.WriteLine($"{goalNumber}. [X]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
-            else
-                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
+            Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
         }
         else if (goal is ChecklistGoal checklistGoal)
         {
@@ -151,22 +151,23 @@ private static void DisplayScore()
 private static void ExportGoalsToCSV()
 {
     StringBuilder csvContent = new StringBuilder();
-    csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score,Goal Type,Completion Count, Completion Target, Bonus Points");
+    csvContent.AppendLine("Goal Name,Description,Point Value,Is Completed,Score,Goal Type,Completion Count,Completion Target,Bonus Points");
 
     foreach (var goal in goals)
     {
-        string line = $"\"{goal.Name}\",{goal.PointValue},{goal.IsCompleted},{goal.CalculateScore()}";
+        string line = $"\"{goal.Name}\",\"{goal.Description}\",{goal.PointValue},{goal.IsCompleted},{goal.CalculateScore()}";
         string goalType;
         string additionalData = "";
 
         if (goal is SimpleGoal)
         {
             goalType = "SimpleGoal";
+            additionalData = ",,,";
         }
         else if (goal is EternalGoal eternalGoal)
         {
             goalType = "EternalGoal";
-            additionalData = $",{eternalGoal.Occurrences}";
+            additionalData = $",{eternalGoal.Occurrences},,";
         }
         else if (goal is ChecklistGoal checklistGoal)
         {
@@ -189,7 +190,9 @@ private static void ExportGoalsToCSV()
 }
 
 
-    private static void ImportGoalsFromCSV()
+
+
+private static void ImportGoalsFromCSV()
 {
     Console.WriteLine("Enter the file path to import the CSV:");
     string filePath = Console.ReadLine();
@@ -205,26 +208,27 @@ private static void ExportGoalsToCSV()
     {
         var data = line.Split(',');
 
-        if (data.Length < 4)
+        if (data.Length < 9) 
         {
             Console.WriteLine("Invalid data format in CSV.");
             continue;
         }
 
         string name = data[0].Trim('\"');
-        int pointValue = int.Parse(data[1]);
-        bool isCompleted = bool.Parse(data[2]);
-        string goalType = data[4];
+        string description = data[1].Trim('\"'); 
+        int pointValue = int.Parse(data[2]);
+        bool isCompleted = bool.Parse(data[3]);
+        string goalType = data[5];
 
         Goal goal;
         switch (goalType)
         {
             case "SimpleGoal":
-                goal = new SimpleGoal(name, pointValue);
+                goal = new SimpleGoal(name, pointValue, description);
                 break;
             case "EternalGoal":
-                int occurrences = int.Parse(data[5]);
-                var eternalGoal = new EternalGoal(name, pointValue);
+                int occurrences = int.Parse(data[6]);
+                var eternalGoal = new EternalGoal(name, pointValue, description);
                 for (int i = 0; i < occurrences; i++)
                 {
                     eternalGoal.RecordOccurrence();
@@ -232,10 +236,10 @@ private static void ExportGoalsToCSV()
                 goal = eternalGoal;
                 break;
             case "ChecklistGoal":
-                int completionCount = int.Parse(data[5]);
-                int completionTarget = int.Parse(data[6]);
-                int bonusPoints = int.Parse(data[7]);
-                var checklistGoal = new ChecklistGoal(name, pointValue, completionTarget, bonusPoints);
+                int completionCount = int.Parse(data[6]);
+                int completionTarget = int.Parse(data[7]);
+                int bonusPoints = int.Parse(data[8]);
+                var checklistGoal = new ChecklistGoal(name, pointValue, completionTarget, bonusPoints, description);
                 for (int i = 0; i < completionCount; i++)
                 {
                     checklistGoal.RecordCompletion();

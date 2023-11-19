@@ -4,8 +4,8 @@ public class ChecklistGoal : Goal
     public int CompletionTarget { get; private set; }
     public int BonusPoints { get; private set; } 
 
-    public ChecklistGoal(string name, int pointValue, int target, int bonusPoints) 
-        : base(name, pointValue)
+    public ChecklistGoal(string name, int pointValue, int target, int bonusPoints, string description) 
+        : base(name, pointValue, description)
     {
         CompletionCount = 0;
         CompletionTarget = target;

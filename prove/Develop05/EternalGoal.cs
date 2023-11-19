@@ -2,7 +2,7 @@ public class EternalGoal : Goal
 {
     public int Occurrences { get; private set; }
 
-    public EternalGoal(string name, int pointValue) : base(name, pointValue)
+    public EternalGoal(string name, int pointValue, string description) : base(name, pointValue, description)
     {
         Occurrences = 0;
     }
