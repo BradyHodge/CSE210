@@ -126,56 +126,113 @@ private static void DisplayScore()
     Console.WriteLine($"Your total score is: {userScore}");
 }
 private static void ExportGoalsToCSV()
+{
+    StringBuilder csvContent = new StringBuilder();
+    csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score,Goal Type,Completion Count");
+
+    foreach (var goal in goals)
     {
-        StringBuilder csvContent = new StringBuilder();
-        csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score");
-        foreach (var goal in goals)
+        string line = $"\"{goal.Name}\",{goal.PointValue},{goal.IsCompleted},{goal.CalculateScore()}";
+        string goalType;
+        string additionalData = "";
+
+        if (goal is SimpleGoal)
         {
-            string line = $"\"{goal.Name}\",{goal.PointValue},{goal.IsCompleted},{goal.CalculateScore()}";
-            csvContent.AppendLine(line);
+            goalType = "SimpleGoal";
+        }
+        else if (goal is EternalGoal eternalGoal)
+        {
+            goalType = "EternalGoal";
+            additionalData = $",{eternalGoal.Occurrences}";
+        }
+        else if (goal is ChecklistGoal checklistGoal)
+        {
+            goalType = "ChecklistGoal";
+            additionalData = $",{checklistGoal.CompletionCount},{checklistGoal.CompletionTarget}";
+        }
+        else
+        {
+            goalType = "Unknown";
         }
 
-        Console.WriteLine("Enter the file path to save the CSV:");
-        string filePath = Console.ReadLine();
-        File.WriteAllText(filePath, csvContent.ToString());
-        Console.WriteLine("Goals exported to CSV file successfully.");
+        line += $",{goalType}{additionalData}";
+        csvContent.AppendLine(line);
     }
+
+    Console.WriteLine("Enter the file path to save the CSV:");
+    string filePath = Console.ReadLine();
+    File.WriteAllText(filePath, csvContent.ToString());
+    Console.WriteLine("Goals exported to CSV file successfully.");
+}
+
+
     private static void ImportGoalsFromCSV()
+{
+    Console.WriteLine("Enter the file path to import the CSV:");
+    string filePath = Console.ReadLine();
+
+    if (!File.Exists(filePath))
     {
-        Console.WriteLine("Enter the file path to import the CSV:");
-        string filePath = Console.ReadLine();
-
-        if (!File.Exists(filePath))
-        {
-            Console.WriteLine("File not found.");
-            return;
-        }
-
-        var lines = File.ReadAllLines(filePath);
-        foreach (string line in lines.Skip(1)) // Skipping the header line
-        {
-            var data = line.Split(',');
-
-            if (data.Length != 4)
-            {
-                Console.WriteLine("Invalid data format in CSV.");
-                continue;
-            }
-
-            string name = data[0].Trim('\"');
-            int pointValue = int.Parse(data[1]);
-            bool isCompleted = bool.Parse(data[2]);
-            // Assuming the CSV only contains SimpleGoals for simplicity
-            SimpleGoal goal = new SimpleGoal(name, pointValue);
-            if (isCompleted)
-            {
-                goal.MarkAsComplete();
-            }
-            goals.Add(goal);
-        }
-
-        Console.WriteLine("Goals imported from CSV file successfully.");
+        Console.WriteLine("File not found.");
+        return;
     }
+
+    var lines = File.ReadAllLines(filePath);
+    foreach (string line in lines.Skip(1)) // Skipping the header line
+    {
+        var data = line.Split(',');
+
+        if (data.Length < 4)
+        {
+            Console.WriteLine("Invalid data format in CSV.");
+            continue;
+        }
+
+        string name = data[0].Trim('\"');
+        int pointValue = int.Parse(data[1]);
+        bool isCompleted = bool.Parse(data[2]);
+        string goalType = data[4];
+
+        Goal goal;
+        switch (goalType)
+        {
+            case "SimpleGoal":
+                goal = new SimpleGoal(name, pointValue);
+                break;
+            case "EternalGoal":
+                int occurrences = int.Parse(data[5]);
+                var eternalGoal = new EternalGoal(name, pointValue);
+                for (int i = 0; i < occurrences; i++)
+                {
+                    eternalGoal.RecordOccurrence();
+                }
+                goal = eternalGoal;
+                break;
+            case "ChecklistGoal":
+                int completionCount = int.Parse(data[5]);
+                int completionTarget = int.Parse(data[6]);
+                var checklistGoal = new ChecklistGoal(name, pointValue, completionTarget);
+                for (int i = 0; i < completionCount; i++)
+                {
+                    checklistGoal.RecordCompletion();
+                }
+                goal = checklistGoal;
+                break;
+            default:
+                Console.WriteLine($"Invalid goal type: {goalType}");
+                continue;
+        }
+
+        if (isCompleted && goal is not EternalGoal)
+        {
+            goal.MarkAsComplete();
+        }
+        goals.Add(goal);
+    }
+
+    Console.WriteLine("Goals imported from CSV file successfully.");
+}
+
 }
 
 
