@@ -14,6 +14,9 @@ public class Program
         bool running = true;
         while (running)
         {
+            Console.WriteLine();
+            DisplayScore();
+            Console.WriteLine();
             DisplayMenu();
             string choice = Console.ReadLine();
             switch (choice)
@@ -22,21 +25,18 @@ public class Program
                     CreateGoal();
                     break;
                 case "2":
-                    RecordGoalAchievement();
-                    break;
-                case "3":
                     ViewGoals();
                     break;
-                case "4":
-                    DisplayScore();
-                    break;
-                case "5":
+                case "3":
                     ExportGoalsToCSV();
                     break;
-                case "6":
+                case "4":
                     ImportGoalsFromCSV();
                     break;
-                case "7":
+                case "5":
+                    RecordGoalAchievement();
+                    break;
+                case "6":
                     running = false;
                     break;
                 default:
@@ -49,13 +49,12 @@ public class Program
     private static void DisplayMenu()
     {
         Console.WriteLine("Welcome to the Eternal Quest Program!");
-        Console.WriteLine("1. Create Goal");
-        Console.WriteLine("2. Record Goal Achievement");
-        Console.WriteLine("3. View Goals");
-        Console.WriteLine("4. Display Score");
-        Console.WriteLine("5. Export Goals to CSV");
-        Console.WriteLine("6. Import Goals from CSV");
-        Console.WriteLine("7. Exit");
+        Console.WriteLine("1. Create New Goal");
+        Console.WriteLine("2. List Goals");
+        Console.WriteLine("3. Save Goals to CSV");
+        Console.WriteLine("4. Load Goals from CSV");
+        Console.WriteLine("5. Record Goal Achievement");
+        Console.WriteLine("6. Quit");
         Console.Write("Select an option: ");
     }
 
@@ -79,7 +78,9 @@ private static void CreateGoal()
         case "3":
             Console.WriteLine("Enter completion target for the checklist goal:");
             int target = int.Parse(Console.ReadLine());
-            goals.Add(new ChecklistGoal(name, pointValue, target));
+            Console.WriteLine("Enter bonus points for the checklist goal:");
+            int bonusPoints = int.Parse(Console.ReadLine());
+            goals.Add(new ChecklistGoal(name, pointValue, target, bonusPoints));
             break;
         default:
             Console.WriteLine("Invalid goal type.");
@@ -115,9 +116,31 @@ private static void RecordGoalAchievement()
 }
 private static void ViewGoals()
 {
+    int goalNumber = 1;
     foreach (var goal in goals)
     {
-        Console.WriteLine($"{goal.Name} - Completed: {goal.IsCompleted} - Score: {goal.CalculateScore()}");
+        if (goal is EternalGoal eternalGoal)
+        {
+            if (goal.IsCompleted)
+                Console.WriteLine($"{goalNumber}. [X]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
+            else
+                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Goal Count: {eternalGoal.Occurrences}");
+        }
+        else if (goal is ChecklistGoal checklistGoal)
+        {
+            if (goal.IsCompleted)
+                Console.WriteLine($"{goalNumber}. [X]{goal.Name} - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
+            else
+                Console.WriteLine($"{goalNumber}. [ ]{goal.Name} - Completion Count: {checklistGoal.CompletionCount}/{checklistGoal.CompletionTarget}");
+        }
+        else
+        {
+            if (goal.IsCompleted)
+                Console.WriteLine($"{goalNumber}. [X]{goal.Name}");
+            else
+                Console.WriteLine($"{goalNumber}. [ ]{goal.Name}");
+        }
+        goalNumber++;
     }
 }
 private static void DisplayScore()
@@ -128,7 +151,7 @@ private static void DisplayScore()
 private static void ExportGoalsToCSV()
 {
     StringBuilder csvContent = new StringBuilder();
-    csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score,Goal Type,Completion Count");
+    csvContent.AppendLine("Goal Name,Point Value,Is Completed,Score,Goal Type,Completion Count, Completion Target, Bonus Points");
 
     foreach (var goal in goals)
     {
@@ -148,7 +171,7 @@ private static void ExportGoalsToCSV()
         else if (goal is ChecklistGoal checklistGoal)
         {
             goalType = "ChecklistGoal";
-            additionalData = $",{checklistGoal.CompletionCount},{checklistGoal.CompletionTarget}";
+            additionalData = $",{checklistGoal.CompletionCount},{checklistGoal.CompletionTarget},{checklistGoal.BonusPoints}";
         }
         else
         {
@@ -178,7 +201,7 @@ private static void ExportGoalsToCSV()
     }
 
     var lines = File.ReadAllLines(filePath);
-    foreach (string line in lines.Skip(1)) // Skipping the header line
+    foreach (string line in lines.Skip(1))
     {
         var data = line.Split(',');
 
@@ -211,7 +234,8 @@ private static void ExportGoalsToCSV()
             case "ChecklistGoal":
                 int completionCount = int.Parse(data[5]);
                 int completionTarget = int.Parse(data[6]);
-                var checklistGoal = new ChecklistGoal(name, pointValue, completionTarget);
+                int bonusPoints = int.Parse(data[7]);
+                var checklistGoal = new ChecklistGoal(name, pointValue, completionTarget, bonusPoints);
                 for (int i = 0; i < completionCount; i++)
                 {
                     checklistGoal.RecordCompletion();
