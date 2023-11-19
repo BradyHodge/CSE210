@@ -61,6 +61,7 @@ public class Program
                     {
                         Console.WriteLine("Enter the file name to save the CSV:");
                         autoSaveFilePath = Console.ReadLine();
+                        ExportGoalsToCSV(autoSaveFilePath);
                     }
                     break;
                 case "7":
