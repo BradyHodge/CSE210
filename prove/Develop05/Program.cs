@@ -69,7 +69,6 @@ public class Program
                     if (AutoSave)
                     {
                         ExportGoalsToCSV(autoSaveFilePath);
-                        Console.WriteLine("Save updated.");
                     }
                     break;
                 default:
