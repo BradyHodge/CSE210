@@ -1,6 +1,6 @@
 public class SimpleGoal : Goal
 {
-    public SimpleGoal(string name, int pointValue) : base(name, pointValue)
+    public SimpleGoal(string name, int pointValue, string description) : base(name, pointValue, description)
     {
     }
 
@@ -12,5 +12,4 @@ public class SimpleGoal : Goal
         }
     }
 
-    // The CalculateScore method from the base class is sufficient for this type
 }
