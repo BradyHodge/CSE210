@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class Video
 {
-    // Member variables
     private string title;
     private string author;
     private int lengthInSeconds;
